@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
+    'fornecedor',
 ]
 
 MIDDLEWARE = [
@@ -69,16 +70,25 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'projeto.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ufnprojetomove', # example - blog_data
+        'USER': 'ufnprojetomove',
+        'PASSWORD': 'USc5KrG_77nwVC',
+        'HOST': 'ufnprojetomove.mysql.dbaas.com.br',
+        'PORT': '3306',
+        'OPTIONS':{
+            'init_command': "SET sql_mode= 'STRICT_TRANS_TABLES'",
+        }
     }
 }
 
@@ -120,3 +130,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'projeto/static/')
