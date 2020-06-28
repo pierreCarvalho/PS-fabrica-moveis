@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load bootstrap3 %}
+
+{% block title %}
+	{% bootstrap_icon 'glass' %} Endereços
+{% endblock %}
+
+{% block content %}
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    <a href="{% url 'endereco_create' %}" class="btn btn-md btn-primary">{% bootstrap_icon 'floppy-disk' %} Criar telefone</a>
+	  </div>
+	</div>
+
+	<table class="table table-hover">
+  		<thead>
+  			<th>Rua</th>
+  			<th>Numero</th>
+  			<th>CEP</th>
+  			<th class="text-center">Editar</th>
+  			<th class="text-center">Excluir</th>
+  		</thead>
+
+  		<tbody>
+  			{% for endereco in object_list %}
+				<tr>
+					<td>{{ endereco.rua }}</td>
+					<td>{{ endereco.numero }}</td>
+					<td>
+						{% if endereco.cep %}
+							{{ endereco.descricao }}
+						{% endif %}
+					</td>
+					<td class="text-center">
+				          {% bootstrap_button content='' href=endereco.get_absolute_url button_type='link' icon='edit' button_class='btn btn-primary' size='sm' %}
+				    </td>
+				    <td class="text-center">
+				          {% bootstrap_button content='' href=endereco.get_delete_url button_type='link' icon='trash' button_class='btn btn-danger' size='sm' %}
+				    </td>
+				</tr>
+			{% endfor %}
+  		</tbody>
+	</table>
+{% endblock %}

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'fornecedor',
+    'endereco',
+    'telefone',
 ]
 
 MIDDLEWARE = [
