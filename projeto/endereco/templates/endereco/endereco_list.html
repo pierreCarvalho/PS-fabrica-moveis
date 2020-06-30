@@ -8,7 +8,7 @@
 {% block content %}
 	<div class="panel panel-default">
 	  <div class="panel-body">
-	    <a href="{% url 'endereco_create' %}" class="btn btn-md btn-primary">{% bootstrap_icon 'floppy-disk' %} Criar telefone</a>
+	    <a href="{% url 'endereco_create' %}" class="btn btn-md btn-primary">{% bootstrap_icon 'floppy-disk' %} Criar endereço</a>
 	  </div>
 	</div>
 
@@ -28,7 +28,7 @@
 					<td>{{ endereco.numero }}</td>
 					<td>
 						{% if endereco.cep %}
-							{{ endereco.descricao }}
+							{{ endereco.cep }}
 						{% endif %}
 					</td>
 					<td class="text-center">
